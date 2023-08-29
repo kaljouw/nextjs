@@ -20,16 +20,13 @@ export default function Home(props: any) {
     return <></>
   }
 
-  if (isPresenting) {
+  if (isPresenting && story.content.kavels) {
     return <Present kavels={story.content.kavels} isActive={isPresenting} />
   }
 
 
   return (
     <>
-         <h1>
-          { story ? story.name : 'My Site' }
-        </h1>
       <div className='App'>
         <div className='header'>
           <img src='/musk_logo.svg' alt='Muskathlon logo' />
@@ -37,7 +34,7 @@ export default function Home(props: any) {
         <div className='wrapper'>
           <Intro></Intro>
           <h2 className="my-4">Kavels</h2>
-          <Kavels kavels={story.content.kavels} />
+          {story.content.kavels && <Kavels kavels={story.content.kavels} />}
         </div>
         <div className='footer'>
           <div className='footer__copyright'>
