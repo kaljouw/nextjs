@@ -34,7 +34,7 @@ export const Kavels = ({ kavels }: Props) => {
     if (showModal) window.addEventListener('keyup', handleKeyup);
     return () => window.removeEventListener('keyup', handleKeyup);
   });
-
+ 
 
   return (
     <>
