@@ -27,7 +27,7 @@ export const Intro = () => {
           <div className='buttons'>
             <a href='#_' target='_blank' rel="noreferrer" className='button'>Aanmelden</a>
           </div>
-          Bekijk ook de Muskathlon pagina's van .....
+          Bekijk ook de Muskathlon pagina van .....
           <div className='buttons'>
             <a href='https://www.muskathlon.nl/deelnemers/#_' target='_blank' rel="noreferrer" className='button'>....</a>
             <a href='https://www.muskathlon.nl/deelnemers/#_' target='_blank' rel="noreferrer" className='button'>....</a>

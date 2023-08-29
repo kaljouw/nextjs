@@ -1,7 +1,7 @@
 import StoryblokClient from 'storyblok-js-client'
 import { env } from "../env.mjs";
  
-let Storyblok = new StoryblokClient({
+const Storyblok = new StoryblokClient({
   accessToken: env.NEXT_PUBLIC_SB_API_PREVIEW,
 })
  

@@ -1,8 +1,5 @@
 import { ISbStoriesParams, StoryblokComponent, getStoryblokApi, useStoryblokState } from "@storyblok/react";
-import Head from "next/head";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Kavel } from "~/components/Interfaces";
 import { Intro } from "~/components/Intro/Intro";
 import { Kavels } from "~/components/Kavels/Kavels";
 import { Present } from "~/components/Present/Present";
@@ -17,17 +14,15 @@ export default function Home(props: any) {
     return () => window.removeEventListener('keyup', handleKeyup);
   });
 
-
-  // if (isPresenting) {
-  //   return <Present kavels={kavels} isActive={isPresenting} />
-  // }
-
+  const story = useStoryblokState(props.story) as any;
 
   if(!props.story){
     return <></>
   }
 
-  const story = useStoryblokState(props.story) as any;
+  if (isPresenting) {
+    return <Present kavels={story.content.kavels} isActive={isPresenting} />
+  }
 
 
   return (
@@ -58,16 +53,16 @@ export default function Home(props: any) {
 
 export async function getStaticProps() {
   // home is the default slug for the homepage in Storyblok
-  let slug = "home";
+  const slug = "home";
  
   // load the draft version
-  let sbParams : ISbStoriesParams = {
+  const sbParams : ISbStoriesParams = {
     version: "draft", // or 'published'
     resolve_relations: 'page.kavels'
   };
  
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  const { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
  
   return {
     props: {
