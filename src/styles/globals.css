@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Deprecated, move to tailwind */
+.Modal {
+    /* fixed position will always show modal in the top left corner */
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* z-index to show modal even if it is used before some other elements */
+    z-index: 5;
+    /* make modal fill whole window */
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    max-width: 100vw;
+    /* add some background to blur content behind modal */
+    background: rgba(255, 255, 255, 0.9);
+  
+    /* center content inside modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-image {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+ body {
+	 font-family: "Josefin Sans";
+	 font-family: "Epilogue";
+	 color: #33000c;
+	 font-size: 1rem;
+	 background-color: #f6f6f6;
+}
+ p {
+	 line-height: 1.5rem;
+}
+ li {
+	 padding: 0.25rem 0;
+}
+ h1 {
+	 font-family: "Josefin Sans";
+	 font-size: 45px;
+	 margin-bottom: 1rem;
+	 color: #ce171f;
+     font-weight: 700;
+}
+ h2 {
+	 font-family: "Josefin Sans";
+	 color: #ce171f;
+	 font-size: 30px;
+     font-weight: 700;
+}
+ h3 {
+	 font-family: "Josefin Sans";
+	 color: #ce171f;
+	 font-weight: 400;
+	 font-size: 1.75rem;
+	 margin: 0.5rem 0 1rem;
+}
+ .App .wrapper {
+	 margin: 0 1rem;
+}
+ @media (min-width: 1024px) {
+	 .App .wrapper {
+		 margin: 0 auto;
+		 width: 1024px;
+	}
+}
+ .header {
+	 background-color: #ce171f;
+	 width: 100%;
+	 height: 2rem;
+	 display: flex;
+	 justify-content: flex-end;
+	 align-items: center;
+}
+ .header img {
+	 height: 1rem;
+	 margin-right: 0.75rem;
+}
+ .footer {
+	 background-color: rgba(206,23,31,.031);
+	 width: 100%;
+	 height: 4rem;
+	 margin-top: 4rem;
+	 display: grid;
+	 place-items: center;
+}
+ .intro {
+	 display: flex;
+	 flex-direction: column;
+	 margin-bottom: 1rem;
+}
+ @media (min-width: 820px) {
+	 .intro {
+		 margin-top: 1rem;
+		 flex-direction: row;
+	}
+}
+ .intro__content {
+	 flex: 1 0 50%;
+	 display: flex;
+	 flex-direction: column;
+}
+ .intro__content p {
+	 padding-right: 1rem;
+}
+ .intro__graphic--image {
+	 width: 100%;
+	 height: 100%;
+}
+ .intro .buttons {
+	 display: flex;
+	 margin: 1rem 0 2rem;
+	 gap: 1rem;
+}
+ .intro .buttons .button {
+	 background-color: #ce171f;
+	 padding: 1rem;
+	 color: white;
+	 text-decoration: none;
+	 border-radius: 4px;
+	 display: block;
+}
+ .intro .buttons .button:hover {
+	 filter: brightness(125%);
+}
+ .kavels {
+	 display: flex;
+	 gap: 4rem;
+	 flex-direction: column;
+}
+ .kavels .kavel {
+	 border-radius: 5px;
+	 display: flex;
+	 flex-direction: column;
+	 box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+	 background-color: rgba(206,23,31,.031);
+}
+ @media (min-width: 820px) {
+	 .kavels .kavel {
+		 flex-direction: row;
+	}
+}
+ .kavels .kavel__content {
+	 padding: 1rem;
+	 flex-grow: 1;
+}
+ @media (min-width: 820px) {
+	 .kavels .kavel__content {
+		 padding: 2rem;
+	}
+}
+ .kavels .kavel__content li > p {
+	 margin: 0;
+}
+ .kavels .kavel__poster {
+	 flex: 0 0 50%;
+}
+ .kavels .kavel__poster__frame {
+	 display: flex;
+	 height: 100%;
+	 cursor: pointer;
+}
+ .kavels .kavel__poster__frame--image {
+	 border-top-left-radius: 5px;
+	 border-top-right-radius: 5px;
+	 width: 100%;
+	 object-fit: cover;
+}
+ @media (min-width: 820px) {
+	 .kavels .kavel__poster__frame--image {
+		 border-top-left-radius: 5px;
+		 border-bottom-left-radius: 5px;
+		 border-top-right-radius: 0;
+	}
+}
+ .kavels .thumbs {
+	 display: flex;
+	 margin: 2rem 0 0;
+	 gap: 2rem;
+	 flex-wrap: wrap;
+}
+ .kavels .thumbs__frame {
+	 cursor: pointer;
+	 display: flex;
+	 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	 width: fit-content;
+}
+ .kavels .thumbs__frame--image {
+	 max-width: 150px;
+	 max-height: 120px;
+	 border-radius: 5px;
+	 object-fit: cover;
+	 object-position: center;
+}
+ @media print {
+	 body {
+		 background-color: white;
+	}
+	 .present-container .background {
+		 display: none;
+	}
+	 .present-container .nav__prev, .present-container .nav__next {
+		 display: none;
+	}
+	 .present-container .thumbs {
+		 display: none !important;
+	}
+	 .present-container .kavel__poster {
+		 flex: 0 0 40% !important;
+	}
+}
+ .present-container .nav {
+	 position: absolute;
+	 width: 6rem;
+	 height: 100%;
+	 top: 0;
+	 z-index: 999;
+}
+ .present-container .nav__next {
+	 right: 0;
+}
+ .present-container .nav__prev {
+	 left: 0;
+}
+ .present-container .background {
+	/* Add the blur effect */
+	 filter: blur(3px) brightness(0.5);
+	 -webkit-filter: blur(3px) brightness(0.5);
+	/* Center and scale the image nicely */
+	 background-position: center;
+	 background-repeat: no-repeat;
+	 background-size: cover;
+	/* Full height */
+	 height: 100%;
+	 width: 100%;
+	 position: absolute;
+}
+ .present-container .present {
+	/* fixed position will always show Present in the top left corner */
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	/* z-index to show Present even if it is used before some other elements */
+	 z-index: 5;
+	/* make Present fill whole window */
+	 width: 100vw;
+	 height: 100vh;
+	 max-height: 100vh;
+	 max-width: 100vw;
+	/* center content inside Present */
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ .present-container .present h3 {
+	 font-size: 2.5rem;
+}
+ .present-container .present p, .present-container .present li {
+	 font-size: 1.5rem;
+	 line-height: 2.5rem;
+}
+ .present-container .present .kavel {
+	/* hacker de hack hack. Als dit problemen geeft terugdraaien... */
+	 min-width: 60vw;
+	 max-width: 90vw;
+	 max-height: 90vh;
+	/* *** */
+	 border-radius: 5px;
+	 display: flex;
+	 box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+	 background-color: #fcfcfcf3;
+	 flex-direction: row;
+}
+ .present-container .present .kavel__content {
+	 padding: 1rem;
+	 flex-grow: 1;
+}
+ @media (min-width: 820px) {
+	 .present-container .present .kavel__content {
+		 padding: 2rem;
+	}
+}
+ .present-container .present .kavel__content li > p {
+	 margin: 0;
+}
+ .present-container .present .kavel__poster {
+	 flex: 0 0 50%;
+}
+ .present-container .present .kavel__poster__frame {
+	 display: flex;
+	 height: 100%;
+	 cursor: pointer;
+}
+ .present-container .present .kavel__poster__frame--image {
+	 border-top-left-radius: 5px;
+	 border-top-right-radius: 5px;
+	 width: 100%;
+	 object-fit: cover;
+}
+ @media (min-width: 820px) {
+	 .present-container .present .kavel__poster__frame--image {
+		 border-top-left-radius: 5px;
+		 border-bottom-left-radius: 5px;
+		 border-top-right-radius: 0;
+	}
+}
+ .present-container .present .thumbs {
+	 display: grid;
+	 grid-gap: 10px;
+	 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+ .present-container .present .thumbs .img {
+	 width: 100%;
+}
+ .present-container .present-image {
+	 width: 100%;
+	 height: 100%;
+	 background-size: contain;
+	 background-position: center;
+	 background-repeat: no-repeat;
+}
+ 
