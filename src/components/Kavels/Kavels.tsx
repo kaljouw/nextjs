@@ -42,7 +42,7 @@ export const Kavels = ({ kavels }: Props) => {
         {kavels.map((kavel, kavelNr) => (
           <div className='kavel' key={kavelNr}>
             <div className='kavel__poster'>
-              {kavel.content.afbeeldingen.filter((e, index) => index === 0).map((afbeelding) => (
+              {kavel.content && kavel.content.afbeeldingen.filter((e, index) => index === 0).map((afbeelding) => (
                 <div className='kavel__poster__frame' key={afbeelding.id} onClick={() => toggleModal(afbeelding)}>
                   <img className='kavel__poster__frame--image' alt={`${afbeelding.name}`} src={`${afbeelding.filename}/m/512x0`} />
                 </div>
@@ -52,7 +52,7 @@ export const Kavels = ({ kavels }: Props) => {
               <h3>{kavel.name}</h3>
               <RichTextField  data={ kavel.content.omschrijving} />
               <div className='thumbs'>
-                {kavel.content.afbeeldingen.filter((e, index) => index > 0).map((afbeelding) => (
+                {kavel.content && kavel.content.afbeeldingen.filter((e, index) => index > 0).map((afbeelding) => (
                   <div className='thumbs__frame' key={afbeelding.id} onClick={() => toggleModal(afbeelding)}>
                     <img className='thumbs__frame--image' alt={`${afbeelding.name}`} src={`${afbeelding.filename}/m/150x0`} />
                   </div>

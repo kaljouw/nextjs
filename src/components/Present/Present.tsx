@@ -37,9 +37,10 @@ export const Present = ({ kavels, isActive }: Props) => {
         return () => window.removeEventListener('keyup', handleKeyup);
     });
 
-    if (!isActive) {
+    if (!isActive || !kavel.content) {
         return (<></>)
     }
+
 
     let bgImg = kavel.content.afbeeldingen.filter((e, index) => index > 0)[0];
 
