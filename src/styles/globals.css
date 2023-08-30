@@ -8,7 +8,7 @@ a{
 	font-weight: 500;
 }
 
-a[style*="button"]{
+a[rel*="button"]{
 	background-color: #ce171f;
 	padding: 1rem;
 	color: white;
