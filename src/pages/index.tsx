@@ -1,7 +1,6 @@
 import { ISbStoriesParams, StoryblokComponent, getStoryblokApi, useStoryblokState } from "@storyblok/react";
 import { useEffect, useState } from "react";
-import { BlockUnion, BlockUnionSchema, BlockUnionType, TextSectionSchema, TextSectionType } from "~/components/Interfaces";
-import { Intro } from "~/components/Intro/Intro";
+import { BlockUnionSchema, BlockUnionType, TextSectionSchema, TextSectionType } from "~/components/Interfaces";
 import { Kavels } from "~/components/Kavels/Kavels";
 import { Present } from "~/components/Present/Present";
 

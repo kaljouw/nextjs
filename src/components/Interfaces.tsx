@@ -81,7 +81,7 @@ export const TextSectionSchema = z.object({
     "copyright": null,
     "fieldtype": "asset",
     "meta_data": {}
-    }),
+    } as any),
   text: z.any(),
 })
 export type TextSectionType = z.infer<typeof TextSectionSchema>
