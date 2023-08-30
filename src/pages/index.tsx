@@ -1,5 +1,6 @@
 import { ISbStoriesParams, StoryblokComponent, getStoryblokApi, useStoryblokState } from "@storyblok/react";
 import { useEffect, useState } from "react";
+import { BlockUnion, BlockUnionSchema, BlockUnionType, TextSectionSchema, TextSectionType } from "~/components/Interfaces";
 import { Intro } from "~/components/Intro/Intro";
 import { Kavels } from "~/components/Kavels/Kavels";
 import { Present } from "~/components/Present/Present";
@@ -24,6 +25,7 @@ export default function Home(props: any) {
     return <Present kavels={story.content.kavels} isActive={isPresenting} />
   }
 
+  const textBlocks = story.content.blocks.map((blok: BlockUnionType) => BlockUnionSchema.parse(blok))
 
   return (
     <>
@@ -32,7 +34,7 @@ export default function Home(props: any) {
           <img src='/musk_logo.svg' alt='Muskathlon logo' />
         </div>
         <div className='wrapper'>
-          <Intro></Intro>
+          {textBlocks.map((block: BlockUnionType) => <StoryblokComponent blok={block} key={block._uid} />)}
           <h2 className="my-4">Kavels</h2>
           {story.content.kavels && <Kavels kavels={story.content.kavels} />}
         </div>
@@ -49,12 +51,10 @@ export default function Home(props: any) {
 }
 
 export async function getStaticProps() {
-  // home is the default slug for the homepage in Storyblok
   const slug = "home";
  
-  // load the draft version
   const sbParams : ISbStoriesParams = {
-    version: "draft", // or 'published'
+    version: "published", // or 'published'
     resolve_relations: 'page.kavels'
   };
  
@@ -66,6 +66,5 @@ export async function getStaticProps() {
       story: data ? data.story : false,
       key: data ? data.story.id : false,
     },
-    revalidate: 3600 * 24, // revalidate every hour
   };
 }

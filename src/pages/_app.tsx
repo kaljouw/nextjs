@@ -5,17 +5,17 @@ import "~/styles/globals.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 import { env } from "../env.mjs";
 import { Kavels } from "~/components/Kavels/Kavels";
+import { TextSection } from "~/components/TextSection";
+import { Spacer } from "~/components/Spacer";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 };
 
 const components = {
-  // feature: Feature,
   kavels: Kavels,
-  // grid: Grid,
-  // teaser: Teaser,
-  // page: Page,
+  TextSection: TextSection,
+  Spacer: Spacer,
 };
  
 storyblokInit({
